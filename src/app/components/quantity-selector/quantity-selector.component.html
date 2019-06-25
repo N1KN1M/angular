@@ -1,7 +1,10 @@
 <p>
-  <button (click)="onDecrease(item)" class="vary">-</button>
-  {{item.name}}:
-  {{item.price}}
-  <button (click)="onIncrease(item)" class="vary">+</button>
+  {{item.name}}: {{item.price}}
 </p>
-<div></div>
+<div>
+
+<button (click)="onDecrease(item)" class="vary">-</button>
+  {{quantity}}
+<button (click)="onIncrease(item)" class="vary">+</button>
+
+</div>
