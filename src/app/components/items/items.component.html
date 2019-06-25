@@ -1,6 +1,17 @@
 <form>
-  <app-quantity-selector *ngFor="let item of items" [item]="item">
-  </app-quantity-selector>
+  <table class="fixed">
 
+    <thead>
+    <app-header></app-header>
+    </thead>
+    <tbody>
+
+        <app-quantity-selector *ngFor="let itemQuantity of itemQuantities" [itemQuantity]="itemQuantity">
+
+        </app-quantity-selector>
+
+
+    </tbody>
+  </table>
   <button type="submit" name = "Checkout" >Checkout</button>
 </form>

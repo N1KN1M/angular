@@ -8,11 +8,12 @@ import {ItemQuantity} from '../../models/item/ItemQuantity';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  itemQuantities: ItemQuantity[];
+  itemQuantities: ItemQuantity[] = [];
   items: Item[];
   constructor() { }
 
   ngOnInit() {
+
     this.items = [
       {
         id: 56001,
@@ -30,6 +31,9 @@ export class ItemsComponent implements OnInit {
         price: 80
       }
     ];
+    this.items.forEach((value) => {
+      this.itemQuantities.push(new ItemQuantity(value, 0));
+    });
   }
 
 }

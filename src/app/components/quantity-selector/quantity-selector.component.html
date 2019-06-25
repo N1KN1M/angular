@@ -1,11 +1,16 @@
-<div>
-  <span [(ngModel)] = "itemQuantity.item.name" name = "itemName">{{itemQuantity.item.name}}</span>
-  <span [(ngModel)] = "itemQuantity.item.price" name = "itemPrice">{{itemQuantity.item.price}}</span>
 
-  <button (click)="onDecrease(item)" class="vary" type="button">-</button>
-  <span [(ngModel)] = "itemQuantity.quantity" name="quantity">{{itemQuantity.quantity}}</span>
-  <button (click)="onIncrease(item)" class="vary" type = "button">+</button>
-</div>
+
+<tr>
+  <td>{{itemQuantity.item.name}}</td>
+  <td>{{itemQuantity.item.price}}</td>
+  <td>
+    <button (click)="onDecrease()" class="dec" type="button">-</button>
+    {{itemQuantity.quantity}}
+    <button (click)="onIncrease()" class="inc" type = "button">+</button>
+  </td>
+</tr>
+<br/>
+
 
 
 
