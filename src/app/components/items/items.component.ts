@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../../models/item/Item';
 import {ItemQuantity} from '../../models/item/ItemQuantity';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-items',
@@ -10,7 +11,7 @@ import {ItemQuantity} from '../../models/item/ItemQuantity';
 export class ItemsComponent implements OnInit {
   itemQuantities: ItemQuantity[] = [];
   items: Item[];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
@@ -35,11 +36,12 @@ export class ItemsComponent implements OnInit {
       this.itemQuantities.push(new ItemQuantity(value, 0));
     });
   }
-  updateQuantity(itemQuantity: ItemQuantity) {
-    let obj = this.itemQuantities.find(objs => objs.item.id === 3);
-    obj = itemQuantity;
-  }
+
   test() {
     console.log(this.itemQuantities);
+  }
+
+  goToCart() {
+    this.router.navigateByUrl('/checkout');
   }
 }

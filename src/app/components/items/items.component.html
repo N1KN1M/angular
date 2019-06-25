@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="goToCart()">
   <table class="fixed">
 
     <thead>
@@ -6,14 +6,14 @@
     </thead>
     <tbody>
 
-        <app-quantity-selector *ngFor="let itemQuantity of itemQuantities" [itemQuantity]="itemQuantity"
-        (reflectQuantity)="updateQuantity($event)">
+        <app-quantity-selector *ngFor="let itemQuantity of itemQuantities" [itemQuantity]="itemQuantity">
 
         </app-quantity-selector>
 
 
     </tbody>
   </table>
-  <button type="submit" name = "Checkout" >Checkout</button>
+  <button type="submit" name = "Checkout">Checkout</button>
 </form>
-<button type="button"(click)="test()"></button>
+<button type="button" (click)="test()"></button>
+
