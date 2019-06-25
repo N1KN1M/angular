@@ -6,7 +6,8 @@
     </thead>
     <tbody>
 
-        <app-quantity-selector *ngFor="let itemQuantity of itemQuantities" [itemQuantity]="itemQuantity">
+        <app-quantity-selector *ngFor="let itemQuantity of itemQuantities" [itemQuantity]="itemQuantity"
+        (reflectQuantity)="updateQuantity($event)">
 
         </app-quantity-selector>
 
@@ -15,3 +16,4 @@
   </table>
   <button type="submit" name = "Checkout" >Checkout</button>
 </form>
+<button type="button"(click)="test()"></button>

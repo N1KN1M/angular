@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
+import {Output, EventEmitter} from '@angular/core';
 import {ItemQuantity} from '../../models/item/ItemQuantity';
 
 @Component({
@@ -9,6 +9,7 @@ import {ItemQuantity} from '../../models/item/ItemQuantity';
 })
 export class QuantitySelectorComponent implements OnInit {
   @Input() itemQuantity: ItemQuantity;
+  @Output() reflectQuantity = new EventEmitter<ItemQuantity>();
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +19,7 @@ export class QuantitySelectorComponent implements OnInit {
     this.itemQuantity.quantity = this.itemQuantity.quantity + 1;
     console.log('Name: ' + this.itemQuantity.item.name + '| Price: ' + this.itemQuantity.item.price
       + ' |Quantity: ' + this.itemQuantity.quantity);
+    this.reflectQuantity.emit(this.itemQuantity);
   }
 
   onDecrease() {
@@ -26,5 +28,6 @@ export class QuantitySelectorComponent implements OnInit {
     }
     console.log('Name: ' + this.itemQuantity.item.name + '| Price: ' + this.itemQuantity.item.price
       + ' |Quantity: ' + this.itemQuantity.quantity);
+    this.reflectQuantity.emit(this.itemQuantity);
   }
 }

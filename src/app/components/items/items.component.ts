@@ -35,5 +35,11 @@ export class ItemsComponent implements OnInit {
       this.itemQuantities.push(new ItemQuantity(value, 0));
     });
   }
-
+  updateQuantity(itemQuantity: ItemQuantity) {
+    let obj = this.itemQuantities.find(objs => objs.item.id === 3);
+    obj = itemQuantity;
+  }
+  test() {
+    console.log(this.itemQuantities);
+  }
 }
