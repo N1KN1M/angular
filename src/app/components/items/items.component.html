@@ -6,7 +6,7 @@
     </thead>
     <tbody>
 
-        <app-quantity-selector *ngFor="let itemQuantity of itemQuantities" [itemQuantity]="itemQuantity">
+        <app-quantity-selector *ngFor="let itemQuantity of dataService.quantities" [itemQuantity]="itemQuantity">
 
         </app-quantity-selector>
 

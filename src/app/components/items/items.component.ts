@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../../models/item/Item';
 import {ItemQuantity} from '../../models/item/ItemQuantity';
-import {Router} from '@angular/router';
+import {Data, Router} from '@angular/router';
+import { DataServiceService} from '../../Services/data-service.service';
 
 @Component({
   selector: 'app-items',
@@ -9,9 +10,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  itemQuantities: ItemQuantity[] = [];
+
   items: Item[];
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dataService: DataServiceService) { }
 
   ngOnInit() {
 
@@ -33,12 +34,12 @@ export class ItemsComponent implements OnInit {
       }
     ];
     this.items.forEach((value) => {
-      this.itemQuantities.push(new ItemQuantity(value, 0));
+      this.dataService.quantities.push(new ItemQuantity(value, 0));
     });
   }
 
   test() {
-    console.log(this.itemQuantities);
+    console.log(this.dataService.quantities);
   }
 
   goToCart() {

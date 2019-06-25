@@ -1,3 +1,16 @@
-<p>
-  checkout works!
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let record of dataService.quantities">
+    <td>{{record.item.name}}</td>
+    <td>{{record.item.price}}</td>
+    <td>{{record.quantity}}</td>
+  </tr>
+  </tbody>
+</table>
