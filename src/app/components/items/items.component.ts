@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../../models/item/Item';
+import {ItemQuantity} from '../../models/item/ItemQuantity';
 
 @Component({
   selector: 'app-items',
@@ -7,7 +8,7 @@ import {Item} from '../../models/item/Item';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-
+  itemQuantities: ItemQuantity[];
   items: Item[];
   constructor() { }
 
@@ -16,7 +17,7 @@ export class ItemsComponent implements OnInit {
       {
         id: 56001,
         name: 'Bananas',
-        price: 40
+        price: 40,
       },
       {
         id: 56002,
