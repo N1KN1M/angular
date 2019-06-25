@@ -1,5 +1,5 @@
 <form (ngSubmit)="goToCart()">
-  <table class="fixed">
+  <table class="fixed" align="center">
 
     <thead>
     <app-header></app-header>
@@ -13,7 +13,9 @@
 
     </tbody>
   </table>
-  <button type="submit" name = "Checkout">Checkout</button>
+  <div class="wrapper">
+    <button type="submit" name = "Checkout" class ="button">Checkout</button>
+  </div>
 </form>
-<button type="button" (click)="test()"></button>
+
 

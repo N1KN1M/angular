@@ -1,17 +1,19 @@
-<table>
+<table align="center">
   <thead>
-    <tr>
+    <tr align="center">
       <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
     </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let record of dataService.quantities">
-    <td>{{record.item.name}}</td>
-    <td>{{record.item.price}}</td>
-    <td>{{record.quantity}}</td>
+  <tr *ngFor="let record of dataService.quantities" align="center">
+    <ng-container *ngIf="record.quantity>0">
+      <td>{{record.item.name}}</td>
+      <td>{{record.item.price}}</td>
+      <td>{{record.quantity}}</td>
+    </ng-container>
   </tr>
   </tbody>
 </table>
-<div> Total: {{this.totalCost}}</div>
+<div align="center"> Total: {{this.totalCost}}</div>

@@ -15,32 +15,30 @@ export class ItemsComponent implements OnInit {
   constructor(private router: Router, public dataService: DataServiceService) { }
 
   ngOnInit() {
-
-    this.items = [
-      {
-        id: 56001,
-        name: 'Bananas',
-        price: 40,
-      },
-      {
-        id: 56002,
-        name: 'Apples',
-        price: 100
-      },
-      {
-        id: 56003,
-        name: 'Mangoes',
-        price: 80
-      }
-    ];
-    this.items.forEach((value) => {
-      this.dataService.quantities.push(new ItemQuantity(value, 0));
-    });
+    if (this.dataService.quantities.length === 0) {
+      this.items = [
+        {
+          id: 56001,
+          name: 'Bananas',
+          price: 40,
+        },
+        {
+          id: 56002,
+          name: 'Apples',
+          price: 100
+        },
+        {
+          id: 56003,
+          name: 'Mangoes',
+          price: 80
+        }
+      ];
+      this.items.forEach((value) => {
+        this.dataService.quantities.push(new ItemQuantity(value, 0));
+      });
+    }
   }
 
-  test() {
-    console.log(this.dataService.quantities);
-  }
 
   goToCart() {
     this.router.navigateByUrl('/checkout');
