@@ -1,0 +1,15 @@
+<div>
+  <div>To pay: {{this.dataService.totalCost}}</div>
+  <form class="vpa-form" (ngSubmit)="validateAndPay()">
+    <div class="form-group">
+      <mat-form-field class="vpaPayment">
+        <input matInput placeholder="VPA" name="vpa" id="vpa" required #vpa="ngModel" [(ngModel)]="vpaId">
+      </mat-form-field>
+      <span *ngIf="vpa.invalid && vpa.touched">Please enter VPA!</span>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="!vpa.valid">Pay!</button>
+  </form>
+  <div class="success" *ngIf="successMsg">
+    <p>Payment Successful!</p>
+  </div>
+</div>

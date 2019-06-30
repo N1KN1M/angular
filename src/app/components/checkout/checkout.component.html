@@ -16,4 +16,12 @@
   </tr>
   </tbody>
 </table>
-<div align="center"> Total: {{this.totalCost}}</div>
+<div align="center"> Total: {{this.dataService.totalCost}}</div>
+<div>
+  <span>Payment Options:</span>
+  <mat-radio-group [(ngModel)] = "paymentType" aria-label="Select an option">
+    <mat-radio-button  value="upi" >UPI</mat-radio-button>
+    <mat-radio-button  value="creditCard">Credit Card</mat-radio-button>
+  </mat-radio-group>
+</div>
+<div align="center"><button (click)="goToPaymentPage()">Proceed to Pay</button></div>

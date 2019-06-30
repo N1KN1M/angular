@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataServiceService} from '../../Services/data-service.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-checkout',
@@ -7,12 +9,11 @@ import {DataServiceService} from '../../Services/data-service.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  totalCost: number;
-  constructor(public dataService: DataServiceService) { }
+  paymentType: string;
+  constructor(private router: Router, public dataService: DataServiceService) { }
 
   ngOnInit() {
-    this.totalCost = 0;
-    this.totalCost = this.calculateCost();
+    this.dataService.totalCost = this.calculateCost();
   }
   calculateCost() {
     let cost = 0;
@@ -20,5 +21,9 @@ export class CheckoutComponent implements OnInit {
       cost = cost + item.quantity * item.item.price;
     });
     return cost;
+  }
+
+  goToPaymentPage() {
+    this.router.navigateByUrl('/payment/' + this.paymentType);
   }
 }
