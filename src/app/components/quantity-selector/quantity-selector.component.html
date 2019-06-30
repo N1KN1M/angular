@@ -4,9 +4,9 @@
   <td>{{itemQuantity.item.name}}</td>
   <td>{{itemQuantity.item.price}}</td>
   <td>
-    <button (click)="onDecrease()" class="dec" type="button">-</button>&nbsp;
-    {{itemQuantity.quantity}}&nbsp;
-    <button (click)="onIncrease()" class="inc" type = "button">+</button>
+    <button mat-mini-fab (click)="onDecrease()" class="dec" type="button">-</button>
+    {{itemQuantity.quantity}}
+    <button mat-mini-fab (click)="onIncrease()" class="inc" type = "button">+</button>
   </td>
 </tr>
 <br/>
