@@ -1,13 +1,35 @@
 <div>
   <div>To pay: {{this.dataService.totalCost}}</div>
-  <form class="vpa-form" (ngSubmit)="validateAndPay()">
+  <form class="credit-card-form" (ngSubmit)="validateCCAndPay()">
+
     <div class="form-group">
-      <mat-form-field class="vpaPayment">
-        <input matInput placeholder="VPA" name="vpa" id="vpa" required #vpa="ngModel" [(ngModel)]="vpaId">
+      <mat-form-field class="ccPayment">
+        <input matInput placeholder="Card Number" name="cardNumber" id="cardNumber" required #cardNum="ngModel" [(ngModel)]="cardNumber">
       </mat-form-field>
-      <span *ngIf="vpa.invalid && vpa.touched">Please enter VPA!</span>
+
     </div>
-    <button mat-raised-button type="submit" [disabled]="!vpa.valid">Pay!</button>
+
+    <div class="form-group">
+      <mat-form-field class="ccPayment">
+        <input matInput placeholder="Exp Month" name="expiryMonth" id="expiryMonth" required #expiryMM="ngModel" [(ngModel)]="expiryMonth">
+      </mat-form-field> ,
+
+      <mat-form-field>
+        <input matInput placeholder="Exp Year" name="expiryYear" id="expiryYear" required #expiryYYYY="ngModel" [(ngModel)]="expiryYear">
+      </mat-form-field>
+
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="ccPayment">
+        <input matInput placeholder="CVV" name="cvv" id="cvv" required #CVV="ngModel" [(ngModel)]="cvv">
+      </mat-form-field>
+
+    </div>
+
+
+    <button mat-raised-button type="submit" [disabled]="!cardNum.valid || !expiryMM.valid || !expiryYYYY.valid || !CVV.valid">Pay!</button>
+
   </form>
   <div class="success" *ngIf="successMsg">
     <p>Payment Successful!</p>

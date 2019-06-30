@@ -8,10 +8,16 @@ import {DataServiceService} from '../../Services/data-service.service';
 })
 export class CreditCardComponent implements OnInit {
   successMsg: boolean;
+  expiryMonth: number;
+  expiryYear: number;
+  cvv: number;
+  cardNumber: number;
   constructor(public dataService: DataServiceService) { }
 
   ngOnInit() {
 
   }
-
+  validateCCAndPay() {
+    this.successMsg = true;
+  }
 }
